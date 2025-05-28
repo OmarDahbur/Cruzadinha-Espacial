@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Cruzadinha</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<body onload="mostrarDica()" class="fundo">
+  <div class="inicio" id="inicio">
+    <div class="container">
+      <h1 class="titulo">Cruzadinha Espacial</h1>
+      <div class="informacoes" id="informacoes">
+        Cruzadinha desenvolvida por: Omar Nidal
+      </div>
+      <button onclick="iniciar()" id="botao_cruzadinha_iniciar" class="botao_cruzadinha_iniciar">Iniciar
+        Cruzadinha</button>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="conteudo" style="display: none;" id="conteudo">
+    <div class="content">
+      <div id="cruzadinha-container"></div>
+      <div class="texto">
+        <div class="dicas">
+          <div class="carrossel">
+            <button onclick="anteriorDica()"><img src="esquerda.png" alt="anterior" class="seta">
+            </button>
+
+            <p id="dica-texto">Dica 1</p>
+            <button onclick="proximaDica()"><img src="direita.png" alt="proximo" class="seta"></button>
+
+          </div>
+        </div>
+        <button onclick="verificarRespostas()" id="botao_cruzadinha_verificar" class="botao_cruzadinha_iniciar"
+          style="display: none;">Finalizar Cruzadinha</button>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</body>
+
+</html>
+<script>
+
+  const dicas = [
+    '1: Ele recebe dados, recebe a instrução e executa toda essa operação, é o componente que é responsável por executar as principais operações matemáticas. ',
+    '2: Podemos dizer que ele é o cérebro do computador, ela interpreta e executa as tarefas que o computador precisa realizar. ',
+    '3: Localizada na CPU, sua principal função é guardar dados temporariamente e as instruções desses dados durante a execução.  ',
+    '4: Qual a sigla do tipo de memória volátil que é usada para armazenar dados enquanto o computador está ligado? ',
+    '5: Qual a sigla do tipo de memória não volátil com dados permanentes sendo esses dados apenas par a leitura? ',
+    '6: Seu conteúdo só é apagado com luz UV além de ser um tipo de memória não volátil. ',
+    '7: Também é um tipo de memória não volátil, é rápida e regravável, usada principalmente em SSDs e pendrives. ',
+    '8: É usada para guardar todo tipo de arquivo e programa, seu conteúdo vai para a RAM, funciona como um grande armazenamento tipo um HD ou SSD. ',
+    '9: Qual a sigla que permite algo mais rápido e direto para a RAM sem usar a CPU? ',
+    '10: É usado para ativar um chip específico entre vários que estão conectados no computador. ',
+    '11: Ele funciona como um tipo de transmissor de endereço das memórias, e é nisso que dados podem ser lidos.',
+    '12: Ele serve como um carregador de dados, carrega para o processador, memória e para os periféricos. ',
+    '13: Processador extremamente famoso da Intel que foi lançado em 2009',
+    '14: Um dos melhores processadores do mercado e mais fortes da Intel que foi lançado em 2008 e que tem mais desempenho do que foi lançado em 2009 ',
+    '15: É um tipo de processador que tem 2 núcleos de processamento. ',
+    '16: É o mesmo tipo de processador que o dual-core, porém tem o dobro de núcleos de processamento. '
+  ];
+
+  let indiceDica = 0;
+
+  function mostrarDica() {
+    document.getElementById("dica-texto").innerText = dicas[indiceDica];
+  }
+
+  function proximaDica() {
+    if (indiceDica < dicas.length - 1) {
+      indiceDica++;
+    } else {
+      indiceDica = 0;
+    }
+    mostrarDica();
+  }
+
+  function anteriorDica() {
+    if (indiceDica > 0) {
+      indiceDica--;
+    } else {
+      indiceDica = dicas.length - 1;
+    }
+    mostrarDica();
+  }
+
+</script>
